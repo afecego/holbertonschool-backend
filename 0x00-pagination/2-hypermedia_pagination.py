@@ -45,7 +45,7 @@ class Server:
         """returns a dictionary containing the following key-value pairs"""
         rows = self.get_page(page, page_size)
         lines = len(rows)
-        total_pag = math.ceil(len(self.dataset())/page_size)
+        total_pag = math.ceil(len(self.__dataset)/page_size)
         return {
             'page_size': lines,
             'page': page,
