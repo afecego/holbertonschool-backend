@@ -49,7 +49,7 @@ class Server:
             'page_size': lines,
             'page': page,
             'data': rows,
-            'next_page': page + 1 if total_pag > page else None,
-            'prev_page': page - 1 if total_pag > 0 else None,
+            'next_page': page + 1 if (page + 1) >= total_pag else None,
+            'prev_page': page - 1 if (page - 1) < 0 else None,
             'total_pages': total_pag
         }
