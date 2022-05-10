@@ -45,12 +45,12 @@ class Server:
         """returns a dictionary containing the following key-value pairs"""
         rows = self.get_page(page, page_size)
         lines = len(rows)
-        total_pag = math.ceil(len(self.__dataset)/page_size)
+        total_pag = math.ceil(len(self.dataset())/page_size)
         return {
             'page_size': lines,
             'page': page,
             'data': rows,
-            'next_page': page + 1 if (page + 1) >= total_pag else None,
-            'prev_page': page - 1 if (page - 1) < 0 else None,
+            'next_page': page + 1 if (page + 1) <= total_pag else None,
+            'prev_page': page - 1 if (page - 1) > 0 else None,
             'total_pages': total_pag
         }
