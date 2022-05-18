@@ -16,14 +16,14 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app.config.from_object('2-app.Config')
+app.config.from_object('3-app.Config')
 
 
 @app.route('/', strict_slashes=False)
 def index():
     """Create a single '/' route and an index.html template that simply
     outputs"""
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
 
 @babel.localeselector
@@ -34,4 +34,4 @@ def get_locale():
 
 if __name__ == '__main__':
     """Main function"""
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
