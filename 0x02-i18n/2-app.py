@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """instantiate the Babel object in your app. Store it in a module-level
 variable named babel"""
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app.config.from_object('2-app.Config')
+app.config.from_object('1-app.Config')
 
 
 @app.route('/')
