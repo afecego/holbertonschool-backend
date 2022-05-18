@@ -30,7 +30,7 @@ def index():
 def get_locale():
     """determine the best match with our supported languages
     """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(['en', 'fr'])
 
 
 if __name__ == "__main__":
