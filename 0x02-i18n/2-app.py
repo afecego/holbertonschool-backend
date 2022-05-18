@@ -8,13 +8,6 @@ app = Flask(__name__)
 babel = Babel(app)
 
 
-@app.route('/')
-def index():
-    """Create a single '/' route and an index.html template that simply
-    outputs"""
-    return render_template('2-index.html')
-
-
 class Config(object):
     """class that has a LANGUAGES class attribute equal to ["en", "fr"] and
     et Babel’s default locale ("en") and timezone ("UTC")."""
@@ -24,6 +17,13 @@ class Config(object):
 
 
 app.config.from_object('2-app.Config')
+
+
+@app.route('/')
+def index():
+    """Create a single '/' route and an index.html template that simply
+    outputs"""
+    return render_template('2-index.html')
 
 
 @babel.localeselector
