@@ -19,7 +19,7 @@ class Config(object):
 app.config.from_object('2-app.Config')
 
 
-@app.route('/')
+@app.route('/', strict_slashes=False)
 def index():
     """Create a single '/' route and an index.html template that simply
     outputs"""
@@ -34,4 +34,4 @@ def get_locale():
 
 if __name__ == '__main__':
     """Main function"""
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
