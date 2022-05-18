@@ -4,19 +4,17 @@ from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
-app = Flask(__name__)
-babel = Babel(app)
-
-
 class Config(object):
     """class that has a LANGUAGES class attribute equal to ["en", "fr"] and
     et Babel’s default locale ("en") and timezone ("UTC")."""
-    LANGUAGE = ['en', 'fr']
+    LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+app = Flask(__name__)
 app.config.from_object('2-app.Config')
+babel = Babel(app)
 
 
 @app.route('/', strict_slashes=False)
@@ -28,8 +26,9 @@ def index():
 
 @babel.localeselector
 def get_locale():
-    """determine the best match with our supported languages."""
-    return request.accept_languages.best_match(app.config['LANGUAGE'])
+    """Create a get_locale function with the babel.localeselector and
+    determine the best match with our supported languages."""
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == '__main__':
