@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """instantiate the Babel object in your app. Store it in a module-level
 variable named babel"""
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 from flask_babel import Babel
 
 app = Flask(__name__)
@@ -30,7 +30,7 @@ def index():
 def get_locale():
     """determine the best match with our supported languages
     """
-    return request.accept_languages.best_match(['en', 'fr'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == "__main__":
