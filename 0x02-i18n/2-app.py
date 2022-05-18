@@ -23,7 +23,7 @@ app.config.from_object('1-app.Config')
 def index():
     """Create a single "/" route and an index.html template that simply
     outputs"""
-    return render_template('2-index.html')
+    return render_template('1-index.html')
 
 
 @babel.localeselector
